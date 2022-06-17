@@ -47,11 +47,11 @@ export default function About() {
         />
         <Head>
           <title>Create Next App</title>
-          <meta name="title" content={course.title} />
-          <meta name="description" content={course.search_description}/>
-          <meta name="og:title" content={course.title} />
-          <meta name="og:description" content={course.search_description}/>
-          <meta name="og:image" content={course.banner} />
+          <meta name="description" content={course.search_description} />
+          <meta name="twitter:card" content={course.search_description} key="twcard" />
+          <meta property="og:image" content={course.banner} key="ogimage" />
+          <meta property="og:title" content={course.seo_title} key="ogtitle" />
+          <meta property="og:description" content={course.search_description} key="ogdesc" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
