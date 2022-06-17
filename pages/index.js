@@ -41,13 +41,13 @@ export default function Home() {
       }}
     >
       <div className={styles.container}>
-        <NextSeo
-          title={course.seo_title}
-          description={course.search_description}
-        />
         <DefaultSeo
           titleTemplate="%s | Data Protection Excellence (DPEX) Network"
           defaultTitle="Data Protection Excellence (DPEX) Network"
+        />
+        <NextSeo
+          title={course.seo_title}
+          description={course.search_description}
         />
         {/* <Head>
           <title>Create Next App</title>
