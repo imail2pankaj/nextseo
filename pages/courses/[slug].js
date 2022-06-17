@@ -2,7 +2,7 @@ import axios from 'axios';
 import Head from 'next/head'
 import Image from 'next/image'
 import { NextSeo, DefaultSeo } from 'next-seo';
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
 import useSWR from 'swr';
 import { SWRConfig } from 'swr';
 
@@ -16,9 +16,16 @@ const apiGetPublic = async (url) => {
   }
 };
 
-export default function About() {
-  const slug = 'data-protection-risks-and-audit-management'
-  const courseQuery = useSWR(slug !== undefined ? ['courses', slug] : null, () => apiGetPublic(`/courses/${slug}/`));
+export async function getServerSideProps(context) {
+  const { slug } = context.query;
+  const data = await apiGetPublic(`/courses/${slug}/`)
+  return { props: { initialData: JSON.stringify(data) } }
+}
+
+export default function About({initialData}) {
+
+  // useSWR(`/${slug}`, apiGetPublic, { initialData });
+  const courseQuery = JSON.parse(initialData);
 
   let course = {
     partners: [],
@@ -28,8 +35,8 @@ export default function About() {
     }
   };
 
-  if (courseQuery.data) {
-    course = courseQuery.data;
+  if (courseQuery) {
+    course = courseQuery;
     const [nbody] = JSON.parse(course.body);
     course.value = nbody.value;
   }
