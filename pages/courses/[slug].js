@@ -17,9 +17,9 @@ const apiGetPublic = async (url) => {
 };
 
 export async function getServerSideProps(context) {
-  const { slug } = context.query;
-  const data = await apiGetPublic(`/courses/${slug}/`)
-  return { props: { initialData: JSON.stringify(data) } }
+   const { slug } = context.query;
+   const data = await apiGetPublic(`/courses/${slug}/`)
+   return { props: { initialData: JSON.stringify(data) } }
 }
 
 export default function About({initialData}) {
