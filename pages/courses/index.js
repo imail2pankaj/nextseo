@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { DefaultSeo } from 'next-seo';
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
 import { SWRConfig } from 'swr';
 
 export default function About(props) {
