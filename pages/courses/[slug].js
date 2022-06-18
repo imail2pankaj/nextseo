@@ -52,7 +52,7 @@ export default function About({initialData}) {
           titleTemplate="%s | Data Protection Excellence (DPEX) Network"
           defaultTitle="Data Protection Excellence (DPEX) Network"
         />
-        <NextSeo
+        {/* <NextSeo
           title={course.seo_title}
           description={course.search_description}
           openGraph={{
@@ -63,8 +63,8 @@ export default function About({initialData}) {
               { url: 'https://www.example.ie/og-image-03.jpg' },
             ]
           }}
-        />
-        {/* <Head>
+        /> */}
+        <Head>
           <title>Create Next App</title>
           <meta name="description" content={course.search_description} />
           <meta name="twitter:card" content={course.search_description} key="twcard" />
@@ -72,7 +72,7 @@ export default function About({initialData}) {
           <meta property="og:title" content={course.seo_title} key="ogtitle" />
           <meta property="og:description" content={course.search_description} key="ogdesc" />
           <link rel="icon" href="/favicon.ico" />
-        </Head> */}
+        </Head>
 
         <main className={styles.main}>
           <h1 className={styles.title}>
