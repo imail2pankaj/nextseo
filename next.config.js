@@ -1,4 +1,8 @@
 module.exports = {
+  swcMinify: false,
+  images: {
+    domains: ['storage.googleapis.com']
+  },
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.mdx/,
@@ -13,13 +17,13 @@ module.exports = {
 
     return config
   },
-  serverRuntimeConfig: {
-    // Will only be available on the server side
-    mySecret: 'secret',
-    secondSecret: process.env.SECOND_SECRET, // Pass through env variables
-  },
-  publicRuntimeConfig: {
-    // Will be available on both server and client
-    staticFolder: '/static',
-  },
+  // serverRuntimeConfig: {
+  //   // Will only be available on the server side
+  //   mySecret: 'secret',
+  //   secondSecret: process.env.SECOND_SECRET, // Pass through env variables
+  // },
+  // publicRuntimeConfig: {
+  //   // Will be available on both server and client
+  //   staticFolder: '/static',
+  // },
 }
